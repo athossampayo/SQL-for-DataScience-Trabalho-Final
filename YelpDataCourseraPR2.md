@@ -317,7 +317,7 @@ Copy and Paste the Result Below:
 	
 _I chose Toronto and the Restaurants category._ <br>
 i. Do the two groups you chose to analyze have a different distribution of hours? <br>
-_Yes, the 3-4 stars group only opens Monday and Tuesday, but the 4-5 stars group opens from Tuesday to Sunday._ <br>
+_Yes, the 2-3 stars group only opens Monday and Tuesday, but the 4-5 stars group opens from Tuesday to Sunday._ <br>
 SQL code used for analysis: <br>
 	```
 	SELECT B.city,
