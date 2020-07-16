@@ -1,4 +1,4 @@
-#Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
+# Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
 
 This is a 2-part assignment. In the first part, you are asked a series of questions that will help you profile and understand the data just like a data scientist would. For this first part of the assignment, you will be assessed both on the correctness of your findings, as well as the code you used to arrive at your answer. You will be graded on how easy your code is to read, so remember to use proper formatting and comments where necessary.
 
@@ -9,11 +9,13 @@ In this case, you may want to save as a PDF to ensure your formatting remains in
 
 
 
-##Part 1: Yelp Dataset Profiling and Understanding
+## Part 1: Yelp Dataset Profiling and Understanding
 
 **1. Profile the data by finding the total number of records for each of the tables below:**
+<br>
 	```SELECT COUNT(*)
 	FROM table```
+<br>
 i. Attribute table = 10000 
 ii. Business table = 10000
 iii. Category table = 10000 
@@ -30,20 +32,20 @@ xi. user table = 10000
 
 **2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.**
 
-	```SELECT COUNT(DISTINCT key_column)
-	FROM table```
+	SELECT COUNT(DISTINCT key_column)
+	FROM table
 
-i. Business = 10000 (id)
-ii. Hours = 1562 (business_id)
-iii. Category = 2643 (business_id)
-iv. Attribute = 1115 (business_id)
-v. Review = 10000 (id) | 8090 (business_id) | 9581 (user_id)
-vi. Checkin = 493 (business_id)
-vii. Photo = 10000 (id) | 6493 (business_id)
-viii. Tip = 537 (user_id) | 3979 (business_id)
-ix. User = 10000 
-x. Friend = 11 (user_id)
-xi. Elite_years = 2780 (user_id)
+i. Business = 10000 (id) <br>
+ii. Hours = 1562 (business_id) <br>
+iii. Category = 2643 (business_id) <br>
+iv. Attribute = 1115 (business_id) <br>
+v. Review = 10000 (id) | 8090 (business_id) | 9581 (user_id) <br>
+vi. Checkin = 493 (business_id) <br>
+vii. Photo = 10000 (id) | 6493 (business_id) <br>
+viii. Tip = 537 (user_id) | 3979 (business_id) <br>
+ix. User = 10000  <br>
+x. Friend = 11 (user_id) <br>
+xi. Elite_years = 2780 (user_id) <br>
 
 Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
 
@@ -51,97 +53,97 @@ Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.
 
 **3. Are there any columns with null values in the Users table? Indicate "yes," or "no."**
 
-	Answer: NO
+Answer: NO
 	
 	
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 
-	```SELECT id,
+	SELECT id,
 	SUM(CASE WHEN IS NULL THEN 1 END)
-	FROM user```
+	FROM user
 
 Used this code bellow to double check:
 
-```SELECT id,
-COUNT(1) - COUNT(2),
-COUNT(1) - COUNT(3),
-COUNT(1) - COUNT(4),
-COUNT(1) - COUNT(5),
-COUNT(1) - COUNT(6),
-COUNT(1) - COUNT(7),
-COUNT(1) - COUNT(8),
-COUNT(1) - COUNT(9),
-COUNT(1) - COUNT(10),
-COUNT(1) - COUNT(11),
-COUNT(1) - COUNT(12),
-COUNT(1) - COUNT(13),
-COUNT(1) - COUNT(14),
-COUNT(1) - COUNT(15),
-COUNT(1) - COUNT(16),
-COUNT(1) - COUNT(17),
-COUNT(1) - COUNT(18),
-COUNT(1) - COUNT(19),
-COUNT(1) - COUNT(20)
-FROM user```
+	SELECT id,
+	COUNT(1) - COUNT(2),
+	COUNT(1) - COUNT(3),
+	COUNT(1) - COUNT(4),
+	COUNT(1) - COUNT(5),
+	COUNT(1) - COUNT(6),
+	COUNT(1) - COUNT(7),
+	COUNT(1) - COUNT(8),
+	COUNT(1) - COUNT(9),
+	COUNT(1) - COUNT(10),
+	COUNT(1) - COUNT(11),
+	COUNT(1) - COUNT(12),
+	COUNT(1) - COUNT(13),
+	COUNT(1) - COUNT(14),
+	COUNT(1) - COUNT(15),
+	COUNT(1) - COUNT(16),
+	COUNT(1) - COUNT(17),
+	COUNT(1) - COUNT(18),
+	COUNT(1) - COUNT(19),
+	COUNT(1) - COUNT(20)
+	FROM user
 	
 	
 **4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:**
 
-	i. Table: Review, Column: Stars
+i. Table: Review, Column: Stars
 	
-		min: 1		max: 5		avg: 3.7082
-		```SELECT MIN(stars),
+min: 1		max: 5		avg: 3.7082
+		SELECT MIN(stars),
 		MAX(stars),
 		AVG(stars)
-		FROM Review```
+		FROM Review
 	
-	ii. Table: Business, Column: Stars
+ii. Table: Business, Column: Stars
 	
-		min: 1.0	max: 5.0	avg: 3.6549 
-		```SELECT MIN(stars),
+min: 1.0	max: 5.0	avg: 3.6549 
+		SELECT MIN(stars),
 		MAX(stars),
 		AVG(stars)
-		FROM Business```
+		FROM Business
 	
-	iii. Table: Tip, Column: Likes
+iii. Table: Tip, Column: Likes
 	
-		min: 0		max: 2		avg: 0.0144 
-		```SELECT MIN(likes),
+min: 0		max: 2		avg: 0.0144 
+		SELECT MIN(likes),
 		MAX(likes),
 		AVG(likes)
-		FROM Tip```
+		FROM Tip
+
+iv. Table: Checkin, Column: Count
 	
-	iv. Table: Checkin, Column: Count
-	
-		min: 1		max: 53		avg: 1.9414 
-		```SELECT MIN(count),
+min: 1		max: 53		avg: 1.9414 
+		SELECT MIN(count),
 		MAX(count),
 		AVG(count)
-		FROM Checkin```
+		FROM Checkin
 	
-	v. Table: User, Column: Review_count
+v. Table: User, Column: Review_count
 	
-		min: 0		max: 2000	avg: 24.2995 
-		```SELECT MIN(Review_count),
+min: 0		max: 2000	avg: 24.2995 
+		SELECT MIN(Review_count),
 		MAX(Review_count),
 		AVG(Review_count)
-		FROM User```
+		FROM User
 
 
 
 **5. List the cities with the most reviews in descending order:**
 
-	SQL code used to arrive at answer:
-	```SELECT city,
+SQL code used to arrive at answer:
+	SELECT city,
 	SUM(review_count)
 	FROM business
 	GROUP BY City
-	ORDER BY review_count DESC```
+	ORDER BY review_count DESC
 
-	**PS: I tried to fix the wrong results by using this solution but there are no write permissions on this database.
+**PS: I tried to fix the wrong results by using this solution but there are no write permissions on this database.
 	https://www.enavigo.com/2011/08/02/sqlite-order-by-does-not-work-on-integers-time-for-an-index/
 
-	Copy and Paste the Result Below:
+Copy and Paste the Result Below:
 	+------------------------+-------------------+
 	| city                   | SUM(review_count) |
 	+------------------------+-------------------+
@@ -179,13 +181,14 @@ FROM user```
 i. Avon
 
 SQL code used to arrive at answer:
-	```SELECT stars,
+	SELECT stars,
 	SUM(review_count) AS Distribution
 	FROM business
 	WHERE city='Avon'
-	GROUP BY stars```
+	GROUP BY stars
 
 Copy and Paste the Resulting Table Below (2 columns – star rating and count):
+	```
 	+-------+--------------+
 	| stars | Distribution |
 	+-------+--------------+
@@ -196,17 +199,20 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 	|   4.5 |           31 |
 	|   5.0 |            3 |
 	+-------+--------------+
+	```
 
 ii. Beachwood
 
 SQL code used to arrive at answer:
-	```SELECT stars,
+	```
+	SELECT stars,
 	SUM(review_count) AS Distribution
 	FROM business
 	WHERE city='Beachwood'
 	GROUP BY stars```
 
 Copy and Paste the Resulting Table Below (2 columns – star rating and count):
+	```
 	+-------+--------------+
 	| stars | Distribution |
 	+-------+--------------+
@@ -218,19 +224,21 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 	|   4.5 |           17 |
 	|   5.0 |           23 |
 	+-------+--------------+
+	```
 
 
 **7. Find the top 3 users based on their total number of reviews:**
 		
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 	```SELECT id,
 	name,
 	review_count,
 	fans
 	FROM user
-	ORDER BY review_count DESC```					
+	ORDER BY review_count DESC```				
 		
-	Copy and Paste the Result Below:
+Copy and Paste the Result Below:
+	```
 	+------------------------+-----------+--------------+------+
 	| id                     | name      | review_count | fans |
 	+------------------------+-----------+--------------+------+
@@ -242,47 +250,50 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 	| --2vR0DIsmQ6WfcSzKWigw | Harald    |         1153 |  311 |
 	| -gokwePdbXjfS0iF7NsUGA | eric      |         1116 |   16 |
 	| -DFCC64NXgqrxlO8aLU5rg | Roanna    |         1039 |  104 |
+	```
 
 
 **8. Does posing more reviews correlate with more fans?**
 
-	Please explain your findings and interpretation of the results:
-	No, as seen in the result above, fans count does not directly correlate to reviews_count column.
+Please explain your findings and interpretation of the results:
+_No, as seen in the result above, fans count does not directly correlate to reviews_count column._
 
 	
 **9. Are there more reviews with the word "love" or with the word "hate" in them?**
 
-	Answer:
-	There are more reviews with the love word.
+Answer:
+_There are more reviews with the love word._
+	```
 	+---------------+---------------+
 	| Has_Love_word | Has_Hate_word |
 	+---------------+---------------+
 	|          1780 |           232 |
 	+---------------+---------------+
+	```
 	
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
 
-	```SELECT
+	SELECT
 	COUNT((CASE
 	WHEN r.text LIKE ('%love%') THEN 1
 	END)) AS Has_Love_word,
 	COUNT((CASE
 	WHEN r.text LIKE ('%hate%') THEN 1
 	END)) AS Has_Hate_word
-	FROM review AS r```
+	FROM review AS r
 	
 **10. Find the top 10 users with the most fans:**
 
-	SQL code used to arrive at answer:
-	```SELECT id,
+SQL code used to arrive at answer:
+	SELECT id,
 	name,
 	fans
 	FROM user
 	ORDER BY fans DESC
-	LIMIT 10```
+	LIMIT 10
 	
-	Copy and Paste the Result Below:
-
+Copy and Paste the Result Below:
+	```
 	+------------------------+-----------+------+
 	| id                     | name      | fans |
 	+------------------------+-----------+------+
@@ -297,17 +308,19 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 	| -9da1xk7zgnnfO1uTVYGkA | Fran      |  124 |
 	| -lh59ko3dxChBSZ9U7LfUw | Lissa     |  120 |
 	+------------------------+-----------+------+
+	```
 		
 
-##Part 2: Inferences and Analysis
+## Part 2: Inferences and Analysis
 
 **1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.**
 	
-	I chose Toronto and the Restaurants category.
-i. Do the two groups you chose to analyze have a different distribution of hours?
-		Yes, the 3-4 stars group only opens Monday and Tuesday, but the 4-5 stars group opens from Tuesday to Sunday.
-	SQL code used for analysis:
-	```SELECT B.city,
+_I chose Toronto and the Restaurants category._ <br>
+i. Do the two groups you chose to analyze have a different distribution of hours? <br>
+_Yes, the 3-4 stars group only opens Monday and Tuesday, but the 4-5 stars group opens from Tuesday to Sunday._ <br>
+SQL code used for analysis: <br>
+	```
+	SELECT B.city,
 	B.stars,
 	CASE
 	WHEN H.hours LIKE '%sunday%' THEN 1
@@ -335,11 +348,13 @@ i. Do the two groups you chose to analyze have a different distribution of hours
 	AND
 	star_rating IS NOT NULL)
 	GROUP BY week_days
-	ORDER BY star_rating```
-ii. Do the two groups you chose to analyze have a different number of reviews?
-        Yes, the first group (2-3 stars) have 86 reviews, with an avarage of 86 reviews; and the second group (4-5 stars), have total of 206 reviews and an avarage of 41.2.
-	SQL code used for analysis:
-	```SELECT B.id,
+	ORDER BY star_rating
+	``` <br>
+ii. Do the two groups you chose to analyze have a different number of reviews? <br>
+_Yes, the first group (2-3 stars) have 86 reviews, with an avarage of 86 reviews; and the second group (4-5 stars), have total of 206 reviews and an avarage of 41.2._
+<br> SQL code used for analysis:
+	```
+	SELECT B.id,
 	B.city,
 	B.stars,
 	AVG(B.review_count),
@@ -357,11 +372,13 @@ ii. Do the two groups you chose to analyze have a different number of reviews?
 	AND
 	stars_groups IS NOT NULL)
 	GROUP BY stars_groups
-	ORDER BY stars_groups```
-iii. Are you able to infer anything from the location data provided between these two groups? Explain.
-		Yes. The 2-3 stars group are only localized in two neighborhoods: Downtown Core (with 2 out of 3 business) and Entertainment District. The 4-5 stars group is more diverse, being distributed in 5 neighborhoods.
-	SQL code used for analysis:
-	```SELECT B.id,
+	ORDER BY stars_groups
+	``` <br>
+iii. Are you able to infer anything from the location data provided between these two groups? Explain. <br>
+_Yes. The 2-3 stars group are only localized in two neighborhoods: Downtown Core (with 2 out of 3 business) and Entertainment District. The 4-5 stars group is more diverse, being distributed in 5 neighborhoods._ <br>
+SQL code used for analysis: <br>
+	```
+	SELECT B.id,
 	B.city,
 	B.stars,
 	B.neighborhood,
@@ -380,27 +397,29 @@ iii. Are you able to infer anything from the location data provided between thes
 	AND
 	stars_groups IS NOT NULL)
 	GROUP BY B.neighborhood
-	ORDER BY stars_groups```
+	ORDER BY stars_groups
+	``` <br>
 		
 		
 **2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.**
-		Result Below:
+Result Below:
+		```
 		+----------+-------+-----------+---------------------+---------------------+-------------+---------+
 		| city     | stars | week_days | AVG(B.review_count) | SUM(B.review_count) | COUNT(B.id) | is_open |
 		+----------+-------+-----------+---------------------+---------------------+-------------+---------+
 		| Montréal |   3.0 |         7 |       51.0514184397 |               28793 |         564 |       0 |
 		| Toronto  |   4.0 |         7 |       72.9368252699 |              182415 |        2501 |       1 |
-		+----------+-------+-----------+---------------------+---------------------+-------------+---------+
+		+----------+-------+-----------+---------------------+---------------------+-------------+---------+ ``` <br>
 i. Difference 1:
-         There are ~4.43% more business open than closed. (2051 open in comparison to 564 closed) 
+ _There are ~4.43% more business open than closed. (2051 open in comparison to 564 closed)_
          
 ii. Difference 2:
-         The AVG of reviews is greater in open business, even though it is only ~1.43% greater. (72.94 open compared to 51.05 closed)
+_The AVG of reviews is greater in open business, even though it is only ~1.43% greater. (72.94 open compared to 51.05 closed)_
          
          
 SQL code used for analysis:
 
-	```SELECT B.city,
+	SELECT B.city,
 	B.stars,
 	CASE
 	WHEN H.hours LIKE '%sunday%' THEN 1
@@ -419,7 +438,7 @@ SQL code used for analysis:
 	ON B.id = H.business_id
 	INNER JOIN category C
 	on B.id = C.business_id
-	GROUP BY B.is_open```
+	GROUP BY B.is_open
 	
 **3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.**
 
@@ -427,12 +446,12 @@ Ideas for analysis include: Parsing out keywords and business attributes for sen
 	
 	
 i. Indicate the type of analysis you chose to do:
-        We would like to predict which of the attributes are most important for greater star rating. Could also finish with a sentiment analysis using a simple dictionary for tagging user texts and their feeling about the business.
+_We would like to predict which of the attributes are most important for greater star rating. Could also finish with a sentiment analysis using a simple dictionary for tagging user texts and their feeling about the business._
         
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-		To help understanding of attributes needed for better user reviews, this analysis will need most as the business information from Business Table (id, neighborhood, city, stars and review_count) for basic correlations and star/rating information, also, we would use the neighborhood as an attribute for later analysis. We would also need the whole Attribute table, using this data as the major key to identifing important attributes related to better ratings. For the sentiment analysis, would need to pull the 'text' column from the Review Table.
+_To help improve the understanding of attributes needed for better user reviews, this analysis will need most as the business information from Business Table (id, neighborhood, city, stars and review_count) for basic correlations and star/rating information, also, we would use the neighborhood as an attribute for later analysis. We would also need the whole Attribute table, using this data as the major key to identifing important attributes related to better ratings. For the sentiment analysis, would need to pull the 'text' column from the Review Table._
 iii. Output of your finished dataset:
-	+------------------------+-----------------+-----------+-------+--------------+--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+```	+------------------------+-----------------+-----------+-------+--------------+--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 	| id                     | neighborhood    | city      | stars | review_count | name                     | value                                                                                                                                           |
 	+------------------------+-----------------+-----------+-------+--------------+--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 	| -0DET7VdEQOJVJ_v6klEug | Brown's Corners | Markham   |   3.0 |           25 | RestaurantsTableService  | 1                                                                                                                                               |
@@ -461,9 +480,9 @@ iii. Output of your finished dataset:
 	| -2bYV9zVtn2F5XpiAaHt5A |                 | Edinburgh |   3.0 |            4 | RestaurantsAttire        | casual                                                                                                                                          |
 	| -2bYV9zVtn2F5XpiAaHt5A |                 | Edinburgh |   3.0 |            4 | RestaurantsReservations  | 0                                                                                                                                               |
 	+------------------------+-----------------+-----------+-------+--------------+--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-	(Output limit exceeded, 25 of 787 total rows shown)
+	(Output limit exceeded, 25 of 787 total rows shown)```
 iv. Provide the SQL code you used to create your final dataset:
-	```SELECT b.id,
+	SELECT b.id,
 	b.neighborhood,
 	b.city,
 	b.stars,
@@ -471,11 +490,11 @@ iv. Provide the SQL code you used to create your final dataset:
 	a.name,
 	a.value
 	FROM Business b INNER JOIN Attribute a
-	ON b.id = a.business_id```
+	ON b.id = a.business_id
 
 
 	* For the sentiment analysis, would be needed to do the following changes, but beware that it reduces the output drasticaly, making this only an experimental analysis:
-	```SELECT b.id,
+	SELECT b.id,
 	b.neighborhood,
 	b.city,
 	b.stars,
@@ -486,4 +505,4 @@ iv. Provide the SQL code you used to create your final dataset:
 	FROM Business b INNER JOIN Attribute a
 	ON b.id = a.business_id
 	INNER JOIN Review r
-	ON b.id = r.business_id```
+	ON b.id = r.business_id
